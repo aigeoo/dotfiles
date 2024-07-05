@@ -1,0 +1,52 @@
+import = [
+  # uncomment the flavour you want below:
+  # "~/.config/alacritty/themes/catppuccin-latte.toml"
+  # "~/.config/alacritty/themes/catppuccin-frappe.toml"
+  "~/.config/alacritty/themes/catppuccin-macchiato.toml"
+  # "~/.config/alacritty/themes/catppuccin-mocha.toml"
+]
+
+[cursor]
+blink_interval = 750
+blink_timeout = 5
+
+[cursor.style]
+blinking = "Off"
+shape = "Block"
+
+[env]
+TERM = "alacritty"
+
+[font.offset]
+x = 0
+y = 0
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[shell]
+program = "/bin/zsh"
+
+[window]
+decorations = "none"
+dynamic_padding = false
+dynamic_title = true
+opacity = 0.5
+startup_mode = "windowed"
+title = "Alacritty"
+
+[window.dimensions]
+columns = 0
+lines = 0
+
+[window.padding]
+x = 5
+y = 5
+
+[window.position]
+x = 0
+y = 0
+
+[font]
+size = 10

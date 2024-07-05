@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# settings for common commands
+alias ls="ls --color"
+alias ll="ls -lah"
+alias cls="clear"
+alias temp="sudo systemctl suspend ; exit"
+
+# applications
+alias vim="nvim"
+alias py="python"
+alias active=". .venv/bin/activate"
+
