@@ -1,31 +1,44 @@
-#
-# wm independent hotkeys
-#
-
-# terminal emulator
 super + Return
 	kitty	
 
-# program launcher
 super + r
 	rofi -show run
 
-# take screenshot
-Print
+Insert
 	flameshot gui 
 
-# make sxhkd reload its configuration files:
-super + Escape
-	pkill -USR1 -x sxhkd
+super + x
+  betterlockscreen -l
 
+# volume
 XF86AudioLowerVolume
-  ~/.local/bin/vol-temp down
+  volume down
 
 XF86AudioRaiseVolume
-  ~/.local/bin/vol-temp up 
+  volume up 
 
 XF86AudioMute
-  ~/.local/bin/vol-temp mute 
+  volume mute 
+
+F1
+  volume mute
+
+F2
+  volume down
+
+F3
+  volume up
+
+# brightness
+F11
+  brightness down
+
+F12
+  brightness up
+
+ make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd
 #
 # bspwm hotkeys
 #
@@ -119,9 +132,6 @@ super + ctrl + shift + space
 #
 # move/resize
 #
-
-super + x
-  betterlockscreen -l
 
 # expand a window by moving one of its side outward
 super + alt + {h,j,k,l}

@@ -1,14 +1,14 @@
 #!/bin/sh
 
-# Power menu script using tofi
+# Power menu script using rofi
 
-CHOSEN=$(printf "Lock\nSuspend\nReboot\nShutdown\nLog Out")
+CHOSEN=$(echo -e "Lock\nSuspend\nReboot\nShutdown\nLog Out" | rofi -dmenu -i -p "Power Menu")
 
 case "$CHOSEN" in
-#	"Lock") lockscreen ;;
-	"Suspend") systemctl suspend-then-hibernate ;;
-	"Reboot") reboot ;;
-	"Shutdown") poweroff ;;
-#	"Log Out") hyprctl dispatch exit ;;
-	*) exit 1 ;;
+  "Lock") betterlockscreen -l ;;
+  "Suspend") systemctl suspend-then-hibernate ;;
+  "Reboot") reboot ;;
+  "Shutdown") poweroff ;;
+  "Log Out") bspc quit ;;
+  *) exit 1 ;;
 esac
