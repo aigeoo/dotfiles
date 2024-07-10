@@ -1,3 +1,6 @@
+super + Escape
+	pkill -USR1 -x sxhkd
+
 super + Return
 	kitty	
 
@@ -36,9 +39,6 @@ F11
 F12
   brightness up
 
- make sxhkd reload its configuration files:
-super + Escape
-	pkill -USR1 -x sxhkd
 #
 # bspwm hotkeys
 #

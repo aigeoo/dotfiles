@@ -1,6 +1,6 @@
 # default apps
 export EDITOR="nvim"
-export TERMINAL="alacritty"
+export TERMINAL="kitty"
 export BROWSER="firefox"
 export SHELL="/bin/zsh"
 
@@ -16,7 +16,7 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_SCREENSHOTS_DIR="$HOME/Pictures/screenshots"
 # export XAUTHORITY="$HOME"/.Xauthority
 
-export HISTFILE="~/.bash_history"
+export HISTFILE="~/.zsh_history"
 #export HISTFILE="${XDG_STATE_HOME}"/bash/history
 export ELECTRUMDIR="$XDG_DATA_HOME/electrum"
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
