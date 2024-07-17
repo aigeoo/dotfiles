@@ -22,6 +22,7 @@ cmd mkfile ${{
 # Archive bindings
 cmd unarchive ${{
   case "$f" in
+      *.rar) unrar x "$f" ;;
       *.zip) unzip "$f" ;;
       *.tar.gz) tar -xzvf "$f" ;;
       *.tar.bz2) tar -xjvf "$f" ;;
