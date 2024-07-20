@@ -1,0 +1,2 @@
+#!/bin/bash
+printf "%.0f" $(echo "$(xrandr --verbose | grep -i brightness | awk '{print $2}') * 100" | bc)

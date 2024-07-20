@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+function get_brightness {
+  xrandr --verbose | grep -i brightness | awk '{print $2}'
+}
+
+DISPLAY_OUTPUT="DP-1"
+
+function send_notification {
+  icon="$HOME/.local/share/icons/dunst/brightness.svg"
+  brightness=$(get_brightness)
+  brightness_int=$(echo "$brightness * 100" | bc | cut -d. -f1)  
+  bar=$(seq -s "─" 0 $((brightness_int / 10)) | sed 's/[0-9]//g')
+  dunstify "Brightness: $brightness_int%" -i $icon -r 5555 -u normal -h int:value:$brightness_int
+}
+
+CURRENT_BRIGHTNESS=$(get_brightness)
+
+if [ -z "$CURRENT_BRIGHTNESS" ]; then
+    CURRENT_BRIGHTNESS=1.0
+fi
+
+case $1 in
+    up)
+        NEW_BRIGHTNESS=$(echo "$CURRENT_BRIGHTNESS + 0.1" | bc)
+        ;;
+    down)
+        NEW_BRIGHTNESS=$(echo "$CURRENT_BRIGHTNESS - 0.1" | bc)
+        ;;
+    *)
+        echo "Usage: $0 {up|down}"
+        exit 1
+        ;;
+esac
+
+if (( $(echo "$NEW_BRIGHTNESS > 1.0" | bc -l) )); then
+    NEW_BRIGHTNESS=1.0
+elif (( $(echo "$NEW_BRIGHTNESS < 0.0" | bc -l) )); then
+    NEW_BRIGHTNESS=0.0
+fi
+
+xrandr --output "$DISPLAY_OUTPUT" --brightness "$NEW_BRIGHTNESS"
+send_notification
